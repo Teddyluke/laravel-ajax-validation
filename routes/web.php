@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'BookController@index') -> name('book.index');
+
+Route::get('/api/books/all', 'BookapiController@getAllBook') -> name('book.api.all');
+
+Route::get('/api/books/idis', 'BookapiController@getIdBook') -> name('book.api.id');
